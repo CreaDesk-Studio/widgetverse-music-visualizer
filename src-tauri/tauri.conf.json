@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "music-widget",
+  "productName": "Music Visualizer",
   "version": "0.1.0",
   "identifier": "com.music-widget",
   "build": {
@@ -10,6 +10,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
+        "title": "Music Visualizer",
         "label": "main",
         "width": 400,
         "height": 150,

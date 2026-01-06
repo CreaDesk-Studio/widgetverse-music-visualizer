@@ -1,4 +1,3 @@
-/* --- RESET --- */
 html, body {
   margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
   background: transparent !important;
@@ -17,7 +16,6 @@ html, body {
 }
 #widget-container:active { cursor: grabbing; }
 
-/* --- PORTADA --- */
 .album-art-large {
   position: relative;
   z-index: 10;
@@ -63,12 +61,6 @@ html, body {
     width: 100%;
     display: block;
     margin-bottom: 2px;
-    
-    /* CORRECCIÓN AQUÍ: */
-    /* Cambiamos 'transparent 0%' por 'black 0%'. */
-    /* Esto hace que el inicio del texto sea totalmente visible siempre. */
-    /* Solo dejamos el desvanecido al final (derecha) para cuando el texto sale. */
-    
 
 }
 
@@ -77,12 +69,9 @@ html, body {
   white-space: nowrap;
 }
 
-/* --- ANIMACIÓN BUCLE INFINITO --- */
 .scrolling {
-  /* CAMBIO 1: 20s de duración como pediste */
   animation: scroll-left 20s linear infinite;
   
-  /* Quitamos el padding-left: 100% porque ya no queremos que empiece desde fuera */
   padding-left: 0; 
 }
 
@@ -91,9 +80,6 @@ html, body {
     transform: translateX(0); 
   }
   100% { 
-    /* CAMBIO 2: Movemos solo el 50% */
-    /* Como el texto está duplicado, al llegar al 50% es idéntico al 0% */
-    /* Esto crea la ilusión de que nunca termina */
     transform: translateX(-50%); 
   } 
 }

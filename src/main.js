@@ -8,21 +8,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     const coverImg = document.getElementById('cover');
     const container = document.getElementById('widget-container');
 
-    // ARRASTRE
     container.addEventListener('mousedown', (e) => {
         if (e.button === 0) {
             window.__TAURI__.window.getCurrentWindow().startDragging();
         }
     });
 
-    // ESCUCHAR AL BACKEND
     await listen('media-update', async (event) => {
         const data = event.payload; 
         
-        // --- TEXTOS ---
-        // Usamos una propiedad personalizada (dataset) para guardar el texto original
-        // y así poder comparar limpiamente sin que el texto duplicado nos confunda.
-        
+
         if (titleLabel.dataset.originalText !== data.title) {
             titleLabel.dataset.originalText = data.title;
             verificarDesbordamiento(titleLabel, data.title);
@@ -86,3 +81,26 @@ async function buscarFotoArtista(nombreArtista) {
     }
     return null;
 }
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
+            e.preventDefault();
+        }
+        
+        if (e.ctrlKey && (e.key === '+' || e.key === '-' || e.key === '0' || e.key === '=')) {
+            e.preventDefault();
+        }
+    });
+
+    document.addEventListener('wheel', (e) => {
+        if (e.ctrlKey) {
+            e.preventDefault();
+        }
+    }, { passive: false }); 
+});
