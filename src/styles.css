@@ -1,0 +1,102 @@
+/* --- RESET --- */
+html, body {
+  margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
+  background: transparent !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+#widget-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  cursor: grab;
+  user-select: none;
+}
+#widget-container:active { cursor: grabbing; }
+
+/* --- PORTADA --- */
+.album-art-large {
+  position: relative;
+  z-index: 10;
+  width: 130px;
+  height: 130px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.4);
+  background-color: #000000; 
+  transform: translateZ(0); 
+  flex-shrink: 0;
+}
+
+.album-art-large img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  background-color: #000;
+}
+
+/* --- TARJETA DE TEXTO --- */
+.text-card-white {
+  position: absolute;
+  z-index: 5;
+  left: 80px; 
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 90px;
+  background-color: #FFFFFF; 
+  color: #000000;
+  border-radius: 0 15px 15px 0;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 15px 10px 75px; 
+  box-sizing: border-box;
+  overflow: hidden; 
+}
+
+.track-info-container {
+ overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    display: block;
+    margin-bottom: 2px;
+    
+    /* CORRECCIÓN AQUÍ: */
+    /* Cambiamos 'transparent 0%' por 'black 0%'. */
+    /* Esto hace que el inicio del texto sea totalmente visible siempre. */
+    /* Solo dejamos el desvanecido al final (derecha) para cuando el texto sale. */
+    
+
+}
+
+.scroll-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* --- ANIMACIÓN BUCLE INFINITO --- */
+.scrolling {
+  /* CAMBIO 1: 20s de duración como pediste */
+  animation: scroll-left 20s linear infinite;
+  
+  /* Quitamos el padding-left: 100% porque ya no queremos que empiece desde fuera */
+  padding-left: 0; 
+}
+
+@keyframes scroll-left {
+  0% { 
+    transform: translateX(0); 
+  }
+  100% { 
+    /* CAMBIO 2: Movemos solo el 50% */
+    /* Como el texto está duplicado, al llegar al 50% es idéntico al 0% */
+    /* Esto crea la ilusión de que nunca termina */
+    transform: translateX(-50%); 
+  } 
+}
+
+#title { font-weight: 800; font-size: 18px; color: #111; }
+#artist { font-size: 14px; color: #555; font-weight: 600; }

@@ -1,0 +1,44 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos de Rust (Basura pesada)
+/target
+/src-tauri/target
+**/*.rs.bk
+
+# Archivos de Node/JS (Basura pesada)
+node_modules
+dist
+.DS_Store
+
+# Archivos de Sistema y VS Code
+.vscode
+.idea
+*.log
+
+# ⚠️ SECRETOS (Lo más importante)
+.env
+*.pem
+secrets.json
